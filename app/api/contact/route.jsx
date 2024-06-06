@@ -6,12 +6,10 @@ const nodemailer = require('nodemailer');
 
 export async function POST(request) {
 
-    console.log("dealing with request")
+    console.log("reques", request)
     const username = "jufer_tar_lch@hotmail.com" //correo del que envia
     const password = "JUANf3rnando31"//pass del correo que envia
     
-
-
     
     const formData = await request.formData()
     const name = formData.get('name')
@@ -48,6 +46,7 @@ export async function POST(request) {
             <p>Message: ${message} </p>
             `,
         })
+        console.log("reques", mail)
 
         return NextResponse.json({ message: "Success: email was sent" })
 
