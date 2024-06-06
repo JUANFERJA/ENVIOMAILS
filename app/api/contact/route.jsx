@@ -1,3 +1,4 @@
+"use client";
 import { NextResponse, NextRequest } from 'next/server'
 const nodemailer = require('nodemailer');
 
