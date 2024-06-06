@@ -59,9 +59,9 @@ useEffect(() => {
     <section id="inicio">
         <div className="container">
             <h2 id="welcome-text">Welcome</h2>
-            <p id="typed-text">Welcome to my creative portfolio! I'm passionate about blending technology with artistry to craft 
+            <p id="typed-text">{`Welcome to my creative portfolio! I'm passionate about blending technology with artistry to craft 
                 captivating digital experiences. With a keen eye for detail and a love for innovation, I strive to push the
-                 boundaries of web development. Explore my work and discover how I bring ideas to life in the digital realm</p>
+                 boundaries of web development. Explore my work and discover how I bring ideas to life in the digital realm`}</p>
         </div>
     </section>
 
@@ -81,21 +81,21 @@ useEffect(() => {
         <div className="container">
             <h2>Portfolio</h2>
             <div className="project" onClick={() =>showProjectDetails('proyecto1')}>
-                <img src="images/kcna;sc.png" alt="Project 1"/>
+                {/* <img src="images/kcna;sc.png" alt="Project 1"> */}
                 <div className="project-overlay">
                     <h3>Project 1</h3>
                     <p>Weather website, where you can visit and check the wind and humidity conditions of any city in the world. </p>
                 </div>
             </div>
             <div className="project"  onClick={() =>showProjectDetails('proyecto2')}>
-                <img src="images/acas.png" alt="Project 2"/>
+                {/* <img src="images/acas.png" alt="Project 2"/> */}
                 <div className="project-overlay">
                     <h3>Project 2</h3>
                     <p>Clothing store website with 4 different brands and plenty of clothing types.</p>
                 </div>
             </div>
             <div className="project" onClick={() =>showProjectDetails('proyecto3')}>
-                <img src="images/Untitled.png" alt="Project 3"/>
+                {/* <img src="images/Untitled.png" alt="Project 3"/> */}
                 <div className="project-overlay">
                     <h3>Project 3</h3>
                     <p>Movie website with a contact page and plenty of details.</p>
@@ -107,7 +107,7 @@ useEffect(() => {
     <section id="contacto">
         <div className="container">
             <h2>Contact</h2>
-            <p>Don't hesitate to contact me to discuss interesting projects. I'm here to collaborate!</p>
+            <p>{`Don't hesitate to contact me to discuss interesting projects. I'm here to collaborate!`}</p>
             <p>Phone: 778 237 0974</p>
             <div id="email-container">
                 <p id="email">julius27egd@gmail.com</p>
