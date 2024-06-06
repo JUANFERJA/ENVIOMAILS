@@ -1,113 +1,135 @@
-import Image from 'next/image'
+"use client";
+import { useContext, useEffect, useState } from 'react';
+import Formulario from './Formulario'
+import Comentarios from './Cometarios'
+import { UsuarioContext } from './Context/UsuarioContext';
 
 export default function Home() {
+  
+const showProjectDetails = (projectId:any) =>{
+  console.log('Mostrando detalles del proyecto con ID: ' + projectId);
+  var modal = document.getElementById('projectModal');
+  var title = document.getElementById('projectTitle');
+  var description = document.getElementById('projectDescription');
+ 
+  if (projectId === 'proyecto1') {
+    if(title != null && description != null){
+      title.textContent = 'Proyecto 1';
+      description.innerHTML = '<p>Descripción detallada del Proyecto 1.</p>';
+    }
+     
+  } else if (projectId === 'proyecto2') {
+    if(title != null && description != null){
+      title.textContent = 'Proyecto 2';
+      description.innerHTML = '<p>Descripción detallada del Proyecto 2.</p>';
+    }
+  }
+  if(modal != null){
+    modal.style.display = 'block';
+  }
+}
+
+
+useEffect(() => {
+  window.onclick = function(event) {
+    var modal = document.getElementById('projectModal');
+    if (event.target == modal && modal !== null) {
+        modal.style.display = "none";
+    }
+  }
+}, [])
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+   <>
+   <header>
+        <div className="container">
+            <h1>Personal Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#about-me">Skills</a></li>
+                    <li><a href="#portafolio">Portfolio</a></li>
+                    <li><a href="#contacto">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+    <section id="inicio">
+        <div className="container">
+            <h2 id="welcome-text">Welcome</h2>
+            <p id="typed-text">Welcome to my creative portfolio! I'm passionate about blending technology with artistry to craft 
+                captivating digital experiences. With a keen eye for detail and a love for innovation, I strive to push the
+                 boundaries of web development. Explore my work and discover how I bring ideas to life in the digital realm</p>
+        </div>
+    </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+    <section id="about-me">
+        <div className="container">
+            <h2>Skills</h2>
+            <p>I am a creative programmer who enjoys combining functionality with design to create unique and appealing experiences.</p>
+        </div>
+        
+        <button className="button button-blue">JavaScript</button>
+        <button className="button button-green">HTML</button>
+        <button className="button button-red">CSS</button>
+    </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+    <section id="portafolio">
+        <button className='btn btn-Primary'> ENVIAR EMAIL</button>
+        <div className="container">
+            <h2>Portfolio</h2>
+            <div className="project" onClick={() =>showProjectDetails('proyecto1')}>
+                <img src="images/kcna;sc.png" alt="Project 1"/>
+                <div className="project-overlay">
+                    <h3>Project 1</h3>
+                    <p>Weather website, where you can visit and check the wind and humidity conditions of any city in the world. </p>
+                </div>
+            </div>
+            <div className="project"  onClick={() =>showProjectDetails('proyecto2')}>
+                <img src="images/acas.png" alt="Project 2"/>
+                <div className="project-overlay">
+                    <h3>Project 2</h3>
+                    <p>Clothing store website with 4 different brands and plenty of clothing types.</p>
+                </div>
+            </div>
+            <div className="project" onClick={() =>showProjectDetails('proyecto3')}>
+                <img src="images/Untitled.png" alt="Project 3"/>
+                <div className="project-overlay">
+                    <h3>Project 3</h3>
+                    <p>Movie website with a contact page and plenty of details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+    <section id="contacto">
+        <div className="container">
+            <h2>Contact</h2>
+            <p>Don't hesitate to contact me to discuss interesting projects. I'm here to collaborate!</p>
+            <p>Phone: 778 237 0974</p>
+            <div id="email-container">
+                <p id="email">julius27egd@gmail.com</p>
+                <Formulario/>
+                <Comentarios/>              
+            </div>
+        </div>
+    </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <section id="redes-sociales">
+        <div className="container">
+            
+            <p className="animated-text">Social Media</p>
+            <div className="social-buttons">
+               
+                <a href="https://www.linkedin.com/" target="_blank" className="social-button">LinkedIn</a>
+                <a href="https://www.github.com/" target="_blank" className="social-button">Github</a>
+                <a href="https://www.instagram.com/" target="_blank" className="social-button">Instagram</a>
+            </div>
+        </div>
+    </section>
+    
+   </>
   )
 }
