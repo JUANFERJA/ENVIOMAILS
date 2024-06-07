@@ -8,8 +8,8 @@ const nodemailer = require('nodemailer');
 export async function POST(request) {
 
     console.log("reques", request)
-    const myEmail = "" //correo del que envia
-    const password = ""//pass del correo que envia
+    const myEmail = "jufer_tar_lch@hotmail.com" //correo del que envia
+    const password = "JUANf3rnando31"//pass del correo que envia
     
     
     const formData = await request.formData()

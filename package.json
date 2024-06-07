@@ -8,7 +8,7 @@
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "start": "next start"
-  },
+},
   "browser": {
     "fs": false,
     "path": false,

@@ -28,7 +28,7 @@ const Cometarios = () => {
                     </div>
                     <div key={indice+"padre9"} className="flex items-center">
                     <div key={indice+"padre10"} className="text-sm">
-                        <p key={indice+"padre11"} className="text-gray-900 leading-none">{elemento.usuario}</p>
+                        <p key={indice+"padre11"} className="text-teal-200 leading-none">{elemento.usuario}</p>
                         <p key={indice+"padre12"} className="text-teal-200">{date}</p>
                     </div>
                     </div>
