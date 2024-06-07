@@ -1,4 +1,3 @@
-"use client";
 import { NextResponse, NextRequest } from 'next/server'
 const nodemailer = require('nodemailer');
 
@@ -8,7 +7,7 @@ const nodemailer = require('nodemailer');
 export async function POST(request) {
 
     console.log("reques", request)
-    const myEmail = "jufer_tar_lch@hotmail.com" //correo del que envia
+    const username = "jufer_tar_lch@hotmail.com" //correo del que envia
     const password = "JUANf3rnando31"//pass del correo que envia
     
     
@@ -16,7 +15,7 @@ export async function POST(request) {
     const name = formData.get('name')
     const email = formData.get('email')
     const message = formData.get('message')
-    const username  = formData.get('email')
+    const myEmail  = formData.get('email')
 
     // create transporter object
     const transporter = nodemailer.createTransport({
